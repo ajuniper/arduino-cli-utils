@@ -17,7 +17,8 @@ fi
 date +$'#include <Arduino.h>\nconst char * build_time PROGMEM = "%F %T";' >buildstamp.cpp
 
 echo "Building for $board"
-/c/users/arepi/Documents/Arduino/arduino-cli.exe compile \
+cli=$(find "${PWD/Arduino\/*/Arduino}" -maxdepth 1 -name 'arduino-cli*' -and -type f)
+${cli} compile \
     --fqbn ${board} \
     "${opts[@]}" \
     -e \

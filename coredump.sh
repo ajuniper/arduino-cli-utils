@@ -1,5 +1,7 @@
 #!/bin/bash
-export PATH=$PATH:../xtensa-esp-elf-gdb/bin/
+mydir=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
+# TODO
+export PATH=$PATH:${mydir}/../xtensa-esp-elf-gdb/bin/
 for d in build $(printf "%s\n" builds/* | sort -r) ; do
 
     echo "Trying $d..." >&2
